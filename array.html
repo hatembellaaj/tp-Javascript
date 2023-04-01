@@ -52,7 +52,7 @@ button {
 
     function add()
     {
-        let x = parseInt(document.getElementById('e').value);
+        let x = document.getElementById('e').value;
         T.push(x);
         Tab.push(x);
         S +=x;
@@ -73,7 +73,7 @@ button {
 <div>
 
     <label >Ajouter un entier </label>
-    <input type="text" id="e" onchange="add()" >
+    <input type="number" id="e" onchange="add()" >
 
     <p id="tab"></p>
     <p id="min"></p>
