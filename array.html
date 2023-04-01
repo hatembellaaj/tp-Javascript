@@ -48,27 +48,20 @@ button {
 <script>
     const T=[];
     const Tab = [];
+    let S= 0;
 
     function add()
     {
-        T.push(parseInt(document.getElementById('e').value));
-        Tab.push(parseInt(document.getElementById('e').value));
+        let x = parseInt(document.getElementById('e').value);
+        T.push(x);
+        Tab.push(x);
+        S +=x;
         document.getElementById('tab').innerHTML = T;
-        console.log("---- Tab = ",Tab);
-        
-        for(let i=0; i<Tab.length-1; i++)
-            for(let j=i+1; j<Tab.length; j++)
-            {
-                if(Tab[i]>Tab[j])
-                {
-                    let temp=Tab[i];
-                    Tab[i]=Tab[j];
-                    Tab[j]=temp;
-                }
-                console.log("Tab = ",Tab);
-            }
+        Tab.sort(function(a, b){return a - b});
         document.getElementById('tri').innerHTML = Tab;
-
+        document.getElementById('min').innerHTML = Tab[0];
+        document.getElementById('max').innerHTML = Tab[Tab.length-1];
+        document.getElementById('somme').innerHTML = S;
     }
     </script>
     </head>
