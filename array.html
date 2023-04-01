@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<style>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<script>
+    const T=[];
+    const Tab = [];
+
+    function add()
+    {
+        T.push(parseInt(document.getElementById('e').value));
+        Tab.push(parseInt(document.getElementById('e').value));
+        document.getElementById('tab').innerHTML = T;
+        console.log("---- Tab = ",Tab);
+        
+        for(let i=0; i<Tab.length-1; i++)
+            for(let j=i+1; j<Tab.length; j++)
+            {
+                if(Tab[i]>Tab[j])
+                {
+                    let temp=Tab[i];
+                    Tab[i]=Tab[j];
+                    Tab[j]=temp;
+                }
+                console.log("Tab = ",Tab);
+            }
+        document.getElementById('tri').innerHTML = Tab;
+
+    }
+    </script>
+    </head>
+
+<body>
+
+<h3>Manipulation des tableaux</h3>
+
+<div>
+
+    <label >Ajouter un entier </label>
+    <input type="text" id="e" onchange="add()" >
+
+    <p id="tab"></p>
+    <p id="min"></p>
+    <p id="max"></p>
+    <p id="somme"></p>
+    <p id="tri"></p>
+
+</div>
+
+</body>
+</html>
+
+
